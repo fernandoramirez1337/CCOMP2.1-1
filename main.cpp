@@ -216,7 +216,23 @@ int numero;
 
 */
 
+//SEIS MODIFICADO
+	
+/*
+    int numero;
+    int cont=0;
+    cout<<"Ingrese su numero"<<endl;
+    cin>>numero;
+    int i=2;
 
-
-    return 0;
-}
+    while(cont<numero){
+        ++i;
+        for (int j=2; j<i; j++)
+        {
+            if (i % j == 0)
+                break;
+            else if (i == j+1){
+                cout << i << " ";
+                cont+=1;}
+        }}
+*/
