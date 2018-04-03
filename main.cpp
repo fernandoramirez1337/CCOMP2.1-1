@@ -176,10 +176,14 @@ int numero;
     int bisiesto;
     cout<<"Ingrese su año"<<endl;
     cin>>bisiesto;
-    if (!(bisiesto%4))
-        cout<<"Es bisiesto"<<endl;
+    if (!(bisiesto%4)){
+    	if (!(bisiesto%100)&&(bisiesto%400))
+            cout<<"No es bisiesto"<<endl;
+	else
+        	cout<<"Es bisiesto"<<endl;}
     else
         cout<<"No es bisiesto"<<endl;
+
 
 */
 
