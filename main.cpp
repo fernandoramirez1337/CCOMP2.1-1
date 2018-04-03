@@ -174,13 +174,34 @@ int numero;
 //NUEVE
 /*
     int bisiesto;
-    cout<<"Ingrese su año"<<endl;
+    cout<<"Ingrese su aÃ±o"<<endl;
     cin>>bisiesto;
     if (!(bisiesto%4))
         cout<<"Es bisiesto"<<endl;
     else
         cout<<"No es bisiesto"<<endl;
 
+*/
+
+//DIEZ
+/*
+int numero;
+	int anterior = -1;
+	int resultado= 1;
+	int suma;
+
+    cout<<"Ingrese su numero: "<<endl;
+    cin>>numero;
+
+	for(int cont=0;cont <= numero;++cont)
+	{
+		suma = resultado + anterior;
+		anterior = resultado;
+		resultado = suma;
+	}
+
+	cout<<"Su numero fibonacci es: "<<resultado<<endl;
+    
 */
 //EXTRA
 /*
