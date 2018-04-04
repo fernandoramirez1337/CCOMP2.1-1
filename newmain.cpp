@@ -25,14 +25,8 @@ int main()
     int numero;
     cout<<"Ingrese su numero: "<<endl;
     cin>>numero;
-    if (numero==1)
-        cout<<numero<<endl;
-    else
-    {
-        cout<<1;
-        for(int cont=2;cont!=numero;++cont)
-            cout<<", "<<cont;
-    }
+    (numero==1)?cout<<numero<<endl:cout<<1;for(int cont=2;cont!=numero;++cont)cout<<", "<<cont;
+  
 
 */
 
