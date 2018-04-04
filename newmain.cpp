@@ -26,7 +26,7 @@ int main()
     cout<<"Ingrese su numero: "<<endl;
     cin>>numero;
     (numero==1)?cout<<numero<<endl:cout<<1;for(int cont=2;cont!=numero;++cont)cout<<", "<<cont;
-  
+
 
 */
 
@@ -75,15 +75,15 @@ int a,b,c;
 /*
 
 int numero;
+int primo=1;
 cout<<"Ingrese su numero: "<<endl;
 cin>>numero;
 
-for (int cont=3;cont<numero;++cont){
-        if (numero%cont==0){
-            cout<<numero<<" no es primo"<<endl;
-            return 0;}}
+for (int cont=3;cont<numero;++cont)
+        (numero%cont==0)?primo=0:primo*=1;
 
-cout<<numero<<" es primo"<<endl;
+
+    (primo)?cout<<numero<<" es primo"<<endl:cout<<numero<<" no es primo"<<endl;
 
 */
 
