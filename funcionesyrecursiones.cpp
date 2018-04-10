@@ -2,9 +2,9 @@
 
 using namespace std;
 
-void ejercicio1(int numero)
+bool ejercicio1(int numero)
 {
-    (numero<18)?cout<<"Usted es menor de edad"<<endl:cout<<"Usted es mayor de edad"<<endl;
+    return (numero<18)?false:true;
 }
 
 int ejercicio2(int numero,int cont=0)
@@ -86,9 +86,9 @@ int ejercicio8(int numero,int cont=1,int w=0, int x=0, int y=0, int z=0){
     return ejercicio8(numero-a,cont*=10,w,x,y,z);
 }
 
-void ejercicio9(int numero)
+bool ejercicio9(int numero)
 {
-(!(numero%4))?((!(numero%100)&&(numero%400))?cout<<"No es bisiesto"<<endl:cout<<"Es bisiesto"<<endl):cout<<"No es bisiesto"<<endl;
+return(!(numero%4))?((!(numero%100)&&(numero%400))?false:true):false;
 }
 
 int ejercicio10(int numero)
