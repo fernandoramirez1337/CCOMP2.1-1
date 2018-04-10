@@ -39,12 +39,11 @@ void ejercicio4(int a, int b)
 
 int ejercicio5 (int numero,int cont=2){
     if (cont==numero){
-        cout<<numero<<" si es primo"<<endl;
-        return 0;}
+        return 1;}
     if (numero%cont==0){
-        cout<<numero<<" no es primo"<<endl;
         return 0;}
     return ejercicio5 (numero,cont+=1);}
+
 
 int ejercicio6(int a,int numero=2,int cont=2)
 {
@@ -119,6 +118,20 @@ int nuevo6(int a,int numero=2,int cont=2,int limite=0)
     if (numero%cont==0){
         return nuevo6(a,numero+=1,2,limite);}
     return nuevo6(a,numero,cont+=1,limite);
+}
+
+void nuevo3(float a,float b,float c,float &mayor,float &menor,float &prom)
+{
+    prom=(a+b+c)/3;
+    mayor=(a>b)?((a>c)?a:c):((b>c)?b:c);
+    menor=(a<b)?((a<c)?a:c):((b<c)?b:c);
+}
+
+void nuevo4(int a, int b,bool &pares,bool &divisible,bool &potencia)
+{
+    pares=((a%2==0)&&(b%2==0))?1:0;
+    divisible=(a%b==0)?1:0;
+    potencia=(a*a==b)?1:0;
 }
 
 
