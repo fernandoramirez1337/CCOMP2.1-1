@@ -101,7 +101,10 @@ int extra(int numero)
 }
 
 
-
+bool bisiesto(int numero)
+{
+return((numero%4)||(numero%100)||!(numero%400));
+}
 
 
 int main()
