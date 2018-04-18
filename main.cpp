@@ -2,241 +2,114 @@
 
 using namespace std;
 
+
+int tamanoIterativo(int l1[])
+{
+    int len=0;
+    while(l1[len]!='\0')
+    {
+    len+=1;
+    }
+    return len-4;
+}
+
+int tamanoRecursivo(int l1[],int len=0)
+{
+    if(l1[len]=='\0')
+        return len-4;
+    return tamanoRecursivo(l1,++len);
+}
+
+
+int sumaIterativa(int lista[])
+{
+    int t=tamanoRecursivo(lista);
+    int suma=0;
+    for(int i=0;i<t;++i)
+        suma+=lista[i];
+    return suma;
+}
+
+int sumaRecursiva(int lista[],int t, int suma=0)
+{
+    if (!t)
+        {
+        return suma;
+        }
+    return sumaRecursiva(lista,t-1,suma+=lista[t-1]);
+
+}
+
+void copiaIterativo(int l1[],int l2[])
+{
+    int t=tamanoRecursivo(l1);
+    for (int i=0;i<t;++i)
+    {
+        l2[i]=l1[i];
+    }
+}
+
+void copiaRecursivo(int l1[],int l2[],int t)
+{
+    if(!t)
+        return;
+    l2[t-1]=l1[t-1];
+    copiaRecursivo(l1,l2,t-1);
+}
+
+int* concatenarIterativo(int l1[],int l2[])
+{
+    int l3[tamanoRecursivo(l1)+tamanoRecursivo(l2)];
+    for (int i=0;i<tamanoRecursivo(l1);++i)
+    {
+        l3[i]=l1[i];
+    }
+    for (int i=tamanoRecursivo(l1);i<tamanoRecursivo(l2);++i)
+    {
+        l3[i]=l2[i];
+    }
+    return l3;
+
+}
+
+/*
+void cambioIterativo(int l1[],int l2[],int t)
+{
+    int t=tamanoRecursivo(l1);
+    int aux=0;
+    for (int i=0;i<t;++i)
+    {
+        aux=l1[i];
+        l1[i]=l2[i];
+        l2[i]=aux;
+    }
+}
+
+void cambioRecursivo(int l1[],int l2[],int t)
+{
+    if(!t)
+        return;
+    int aux=0;
+    aux=l1[t-1];
+    l1[t-1]=l2[t-1];
+    l2[t-1]=aux;
+    cambioRecursivo(l1,l2,t-1);
+}
+*/
+
+
+
+
+
 int main()
 {
+    int l[]={1,2,4,5};
+    cout<<sumaIterativa(l);
+
+    return 0;
+}
 
 
 
-//UNO
-/*
-int edad;
-    cout<<"Ingrese su edad: "<<endl;
-    cin>>edad;
-    if (edad<18)
-        cout<<"Usted es menor de edad"<<endl;
-    else
-        cout<<"Usted es mayor de edad"<<endl;
+//'\0'
 
-*/
-//DOS
-/*
-
-    int numero;
-    cout<<"Ingrese su numero: "<<endl;
-    cin>>numero;
-    if (numero==1)
-        cout<<numero<<endl;
-    else
-    {
-        cout<<1;
-        for(int cont=2;cont!=numero;++cont)
-            cout<<", "<<cont;
-    }
-
-*/
-//TRES
-/*
-
-int a,b,c;
-    int mayor=0;
-    int menor=0;
-    cout<<"Ingrese sus 3 numeros: "<<endl;
-    cin>>a;
-    cin>>b;
-    cin>>c;
-
-    int prom=(a+b+c)/3;
-
-    if ((a<=b)&&(c<=b))
-        mayor=b;
-    else if ((b<=a)&&(c<=a))
-        mayor=a;
-    else
-        mayor=c;
-
-    if ((a>=b)&&(c>=b))
-        menor=b;
-    else if ((b>=a)&&(c>=a))
-        menor=a;
-    else
-        menor=c;
-
-    cout<<"El mayor es: "<<mayor<<endl;
-    cout<<"El menor es: "<<menor<<endl;
-    cout<<"El promedio es: "<<prom<<endl;
-
-*/
-//CUATRO
-/*
-    int a,b;
-    cout<<"Ingrese sus dos numeros: "<<endl;
-    cin>>a;
-    cin>>b;
-    if((a%2==0)&&(b%2==0))
-        cout<<"Ambos son divisibles entre 2"<<endl;
-    else if (a%2==0)
-        cout<<a<<" es divisible entre 2"<<endl;
-    else if (b%2==0)
-        cout<<b<<" es divisible entre 2"<<endl;
-    else
-        cout<<"Ninguno es divisible entre 2"<<endl;
-
-    if(a%b==0)
-        cout<<a<<" es multiplo de "<<b<<endl;
-    else
-        cout<<a<<" no es multiplo de "<<b<<endl;
-
-    if (a*a==b)
-        cout<<a<<" elevado al cuadrado es igual a "<<b<<endl;
-    else
-        cout<<a<<" elevado al cuadrado no es igual a "<<b<<endl;
-
-*/
-//CINCO
-/*
-
-int numero;
-cout<<"Ingrese su numero: "<<endl;
-cin>>numero;
-
-for (int cont=3;cont<numero;++cont){
-        if (numero%cont==0){
-            cout<<numero<<" no es primo"<<endl;
-            return 0;}}
-
-cout<<numero<<" es primo"<<endl;
-
-*/
-//SEIS
-/*
-
-int numero;
-    cout<<"Ingrese su numero"<<endl;
-    cin>>numero;
-    for (int i=2; i<numero; i++)
-        for (int j=2; j<i; j++)
-        {
-            if (i % j == 0)
-                break;
-            else if (i == j+1)
-                cout << i << " ";
-
-        }
-
-*/
-//SIETE
-/*
-    int numero;
-    int a,b,c,d,e;
-    cout<<"Ingrese su numero de 5 cifras"<<endl;
-    cin>>numero;
-    a=numero-(numero%10000);
-    b=numero-(numero%1000);
-    c=numero-(numero%100);
-    d=numero-(numero%10);
-    e=numero;
-    e=e-d;
-    d=(d-c)/10;
-    c=(c-b)/100;
-    b=(b-a)/1000;
-    a=a/10000;
-
-    cout<<a<<endl;
-    cout<<b<<endl;
-    cout<<c<<endl;
-    cout<<d<<endl;
-    cout<<e<<endl;
-
-*/
-//OCHO
-/*
-    int numero;
-    int a,b,c,d,e;
-    cout<<"Ingrese su numero de 5 cifras"<<endl;
-    cin>>numero;
-    a=numero-(numero%10000);
-    b=numero-(numero%1000);
-    c=numero-(numero%100);
-    d=numero-(numero%10);
-    e=numero;
-    e=e-d;
-    d=(d-c)/10;
-    c=(c-b)/100;
-    b=(b-a)/1000;
-    a=a/10000;
-
-    if((a==e)&&(b==d))
-        cout<<"Tu numero es palindrome"<<endl;
-    else
-        cout<<"Tu numero no es palindrome"<<endl;
-
-*/
-//NUEVE
-/*
-    int bisiesto;
-    cout<<"Ingrese su año"<<endl;
-    cin>>bisiesto;
-    if (!(bisiesto%4)){
-    	if (!(bisiesto%100)&&(bisiesto%400))
-            cout<<"No es bisiesto"<<endl;
-	else
-        	cout<<"Es bisiesto"<<endl;}
-    else
-        cout<<"No es bisiesto"<<endl;
-
-
-*/
-
-//DIEZ
-/*
-int numero;
-	int anterior = -1;
-	int resultado= 1;
-	int suma;
-
-    cout<<"Ingrese su numero: "<<endl;
-    cin>>numero;
-
-	for(int cont=0;cont <= numero;++cont)
-	{
-		suma = resultado + anterior;
-		anterior = resultado;
-		resultado = suma;
-	}
-
-	cout<<"Su numero fibonacci es: "<<resultado<<endl;
-    
-*/
-//EXTRA
-/*
-    int numero;
-    int factorial=1;
-    cout<<"Ingrese su numero: "<<endl;
-    cin>>numero;
-    for (int cont=1;cont<=numero;++cont)
-        factorial*=cont;
-    cout<<"El factorial de "<<numero<<" es "<<factorial<<endl;
-
-
-*/
-
-//SEIS MODIFICADO
-	
-/*
-    int numero;
-    int cont=0;
-    cout<<"Ingrese su numero"<<endl;
-    cin>>numero;
-    int i=2;
-
-    while(cont<numero){
-        ++i;
-        for (int j=2; j<i; j++)
-        {
-            if (i % j == 0)
-                break;
-            else if (i == j+1){
-                cout << i << " ";
-                cont+=1;}
-        }}
-*/
