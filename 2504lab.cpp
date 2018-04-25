@@ -81,18 +81,22 @@ void invertirRecursivo(int *l,int len,int i=0)
 }
 
 
-
-
-void concatenar(char*l1,char*l2)
+void concatenar(char*lista1,char*lista2)
 {
-    int t1=tamanoRecursivo(l1);
-    int t2=tamanoRecursivo(l2);
-    for (int i=0;i<t1;++i)
-    {
-        //if(*(l1+i)==" ")
-    }
-    return ;
+    char*caracter1;
+    char*caracter2;
+
+    for(caracter1=lista1;*caracter1!='\0';caracter1++)
+        ;
+        //cout<<*(caracter1-1);
+    for(caracter2=lista2;*caracter2!='\0';caracter2++,caracter1++)
+        *caracter1=*caracter2;
+
+    *caracter1='\0';
+
+
 }
+
 
 
 void imprimirLista(char*l)
@@ -112,6 +116,10 @@ void imprimirLista(int*l,int len)
 
 int main()
 {
+    char a[]="Hola";
+    char b[]="Adios";
+    concatenar(a,b);
+    imprimirLista(a);
     return 0;
 }
 
