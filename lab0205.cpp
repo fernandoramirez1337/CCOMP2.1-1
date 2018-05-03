@@ -7,7 +7,7 @@ int t(char*x,int cont=0)
         return cont;
     return t(x,cont+=1);
 }
-//Función con punteros
+//FunciÃ³n con punteros
 bool palindrome(char*x)
 {
     int tam=t(x);
@@ -18,7 +18,7 @@ bool palindrome(char*x)
     }
     return 1;
 }
-//Función con arrays
+//FunciÃ³n con arrays
 bool palindromee(char x[])
 {
     int tam=t(x);
