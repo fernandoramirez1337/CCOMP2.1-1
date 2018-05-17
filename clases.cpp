@@ -3,72 +3,91 @@
 using namespace std;
 class ArregloDeEnteros
 {
+    private:
+        int *ndata;//Variable adicional
     public:
-        int *datos;
-        int *ndatos;
+        int *data;
         int tamano;
-        ArregloDeEnteros(int tamano)
+        ArregloDeEnteros(int tamano)//Constructor
         {
-            datos = new int[tamano];
+            data = new int[tamano];
             this->tamano = tamano;
         }
-        ArregloDeEnteros(ArregloDeEnteros &o)
+        ArregloDeEnteros(ArregloDeEnteros &o)//Constructor Copia
         {
-            datos = new int[o.tamano];
+            data = new int[o.tamano];
             tamano = o.tamano;
             for (int i = 0; i < tamano; ++i)
-                datos[i] = o.datos[i];
+                data[i] = o.data[i];
         }
-        ~ArregloDeEnteros()
+        ~ArregloDeEnteros()//Destructor
         {
-            delete[] datos;
+            delete[] data;
         }
-        void add(int numero)
+        void add(int numero)//Funcion de insercion de entero
         {
-            tamano+=1;
-            ndatos = new int[tamano];
-            for (int i = 0; i < tamano-1; ++i)
-                ndatos[i] = datos[i];
-            delete[] datos;
-            datos = new int[tamano];
+            ndata = new int[tamano+1];
             for (int i = 0; i < tamano; ++i)
-                datos[i] = ndatos[i];
-            delete[] ndatos;
-            datos[tamano-1]=numero;
+                ndata[i] = data[i];
+            delete[] data;
+
+            data = new int[tamano+1];
+            for (int i = 0; i < tamano+1; ++i)
+                data[i] = ndata[i];
+            delete[] ndata;
+
+            data[tamano]=numero;
+            tamano+=1;
         }
-        void deletee(int numero)
+        void deletee(int numero)//Funcion de eliminacion de entero
         {
-            ndatos = new int[tamano-1];
+            ndata = new int[tamano-1];
+
             for (int i = 0; i < numero-1; ++i)
-                ndatos[i] = datos[i];
+                ndata[i] = data[i];
+
             for (int i = numero; i < tamano-1; ++i)
-                ndatos[i-1] = datos[i];
-            delete[] datos;
-            datos = new int[tamano-1];
+                ndata[i-1] = data[i];
+            delete[] data;
+
+            data = new int[tamano-1];
             for (int i = 0; i < tamano-1; ++i)
-                datos[i] = ndatos[i];
-            delete[] ndatos;
+                data[i] = ndata[i];
+            delete[] ndata;
+
             tamano-=1;
 
         }
-        void empty()
+        void empty()//Funcion de vaciado
         {
-            delete[] datos;
-            datos = new int[0];
+            delete[] data;
+            data = new int[0];
             tamano=0;
         }
-        void sort()
+        void sort()//Funcion adicional de ordenamiento
         {
             int i, j, var;
             for(i=1;i<tamano;++i)
             {
                 for(j=0;j<(tamano-i);++j)
-                    if(datos[j]>datos[j+1])
+                    if(data[j]>data[j+1])
                         {
-                        var=datos[j];
-                        datos[j]=datos[j+1];
-                        datos[j+1]=var;
+                        var=data[j];
+                        data[j]=data[j+1];
+                        data[j+1]=var;
                         }
+            }
+        }
+        void print()//Funcion adicional de impresion
+        {
+            if(!tamano)
+                cout<<"empty"<<endl;
+            else
+            {
+
+            for(int i=0;i<tamano;++i)
+                cout<< data[i]<<" ";
+            cout<<endl;
             }
         }
 };
@@ -77,12 +96,13 @@ class ArregloDeEnteros
 int main()
 {
     ArregloDeEnteros a(4);
-    a.datos[0] = 4;
-    a.datos[1] = 2;
-    a.datos[2] = 8;
-    a.datos[3] = 0;
-    a.empty();
-    cout<<a.datos[1]<<endl;
+    a.data[0] = 4;
+    a.data[1] = 2;
+    a.data[2] = 9;
+    a.data[3] = 0;
+    a.add(10);
+    a.sort();
+    a.print();
 
 
     return 0;
