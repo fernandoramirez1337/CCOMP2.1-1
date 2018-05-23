@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1527086417 source:c:\users\alumno-e\desktop\2305lab\main.cpp
+	<iostream>
+	"arreglo.h"
+
+1527086411 c:\users\alumno-e\desktop\2305lab\include\arreglo.h
+	<iostream>
+
+1527086579 source:c:\users\alumno-e\desktop\2305lab\src\arreglo.cpp
+	"arreglo.h"
+
