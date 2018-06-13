@@ -17,7 +17,10 @@ int main()
     ofstream file;
     while(1)
     {
-        cout << "\nThe db++ Base de datos\n1-Para ingresar data\n2-Para leer data\n3-Para guardar data\n";
+        cout << "Base de datos"<<endl;
+        cout <<"1-Para ingresar data"<<endl;
+        cout<<"2-Para leer data"<<endl;
+        cout<<"3-Para guardar data"<<endl;;
         cin >> opcion;
         switch(opcion)
         {
