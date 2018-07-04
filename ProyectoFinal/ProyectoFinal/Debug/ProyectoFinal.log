@@ -1,0 +1,5 @@
+﻿  Ladrillo.cpp
+c:\users\teamcros\desktop\proyecto\proyectofinal\proyectofinal\ladrillo.cpp(33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\teamcros\desktop\proyecto\proyectofinal\proyectofinal\ladrillo.cpp(60): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\teamcros\desktop\proyecto\proyectofinal\proyectofinal\ladrillo.cpp(74): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  ProyectoFinal.vcxproj -> C:\Users\Teamcros\Desktop\Proyecto\ProyectoFinal\Debug\ProyectoFinal.exe
